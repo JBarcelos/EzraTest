@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 using EzraTest.DB;
 using EzraTest.Models;
-
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 
 namespace EzraTest.Controllers
@@ -20,35 +20,30 @@ namespace EzraTest.Controllers
         }
 
         [HttpGet]
-        [Route("")]
         public IEnumerable<Member> GetAllMembers()
         {
             return _membersRepository.GetMembers();
         }
 
-        [HttpGet]
-        [Route("{id}")]
+        [HttpGet("{id}")]
         public Member GetMember(Guid id)
         {
             return _membersRepository.GetMember(id);
         }
 
-        // TODO
-        // Choose a http method and route and complete the method
+        [HttpPost("test")]
         public void AddMember(Member member)
         {
             _membersRepository.AddMember(member);
         }
 
-        // TODO
-        // Choose a http method and route and complete the method
+        [HttpPut("{id}")]
         public void UpdateMember(Guid id, Member member)
         {
             _membersRepository.UpdateMember(id, member);
         }
 
-        // TODO
-        // Choose a http method and route and complete the method
+        [HttpDelete("{id}")]
         public void DeleteMember(Guid id)
         {
             _membersRepository.DeleteMember(id);

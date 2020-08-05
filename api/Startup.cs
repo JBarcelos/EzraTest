@@ -40,7 +40,9 @@ namespace EzraTest
 
             app.UseCors(policy =>
             {
-                policy.AllowAnyOrigin();
+                policy.AllowAnyOrigin()
+                    .AllowAnyMethod()
+                    .AllowAnyHeader();
             });
 
             app.UseEndpoints(endpoints =>

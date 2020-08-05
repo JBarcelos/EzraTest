@@ -8,9 +8,15 @@ import './custom.css'
 
 import { BootstrapVue } from 'bootstrap-vue'
 
+import axios from 'axios'
+import VueAxios from 'vue-axios'
+
 Vue.use(BootstrapVue)
+Vue.use(VueAxios, axios)
 
 Vue.config.productionTip = false
+
+axios.defaults.baseURL = process.env.VUE_APP_API_HOST;
 
 new Vue({
   router,
